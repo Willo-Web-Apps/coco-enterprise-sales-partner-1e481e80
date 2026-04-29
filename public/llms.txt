@@ -1,0 +1,20 @@
+# Your New Business
+
+> URL: https://coco-enterprise-sales-partner.onrender.com
+
+> Create a sales organization, landing page and strategy dedicated to helping the Edge of Compay (www.edgeof.xyz) to sell coco.xyz to enterprises and other potential clients to automate their businesses.  Coco has hired edge to generate qualified leads and get meetings.  Build our business around helping their business.  Decide when and how to refer people to coco using our affiliate link so there is no leakage.
+
+## About
+
+Your New Business is an AI-powered business. This file provides a brief overview for
+language model crawlers and AI assistants.
+
+## Pages
+
+- /: Home — learn about Your New Business and get started
+- /blog: Blog — articles, updates, and insights
+- /blog/[slug]: Individual blog posts
+
+## Contact
+
+For inquiries, please visit our website.
