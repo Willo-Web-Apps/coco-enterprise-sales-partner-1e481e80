@@ -1,62 +1,152 @@
-/* GOOGLE FONTS — Add @import url("https://fonts.googleapis.com/css2?...")
-   lines HERE, ABOVE @import "tailwindcss". CSS spec: every @import must
-   appear before any other rule (incl. @theme, @keyframes). A misplaced
-   @import will fail the build (`@import rules must precede all rules`). */
+/* GOOGLE FONTS — must be ABOVE @import "tailwindcss" */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 /* -----------------------------------------------------------------------
-   Design Tokens — customize these to change the entire site's look.
-   The Product Agent should edit this @theme block to match the business:
-   - Swap fonts (add Google Fonts @import at the very TOP of this file,
-     then update --font-display / --font-body below)
-   - Change brand colors to match the business personality
-   - Flip surface colors for dark theme (swap light/dark values)
+   Design Tokens — EdgeSales
+   Dark-modern enterprise aesthetic
+   Amber gold brand on near-black surfaces
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography — replace with distinctive Google Fonts for the business */
-  --font-display: ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Barlow', ui-sans-serif, sans-serif;
+  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand color scale — agent should customize per business */
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.02 250);
-  --color-brand-200: oklch(0.87 0.04 250);
-  --color-brand-400: oklch(0.70 0.12 250);
-  --color-brand-500: oklch(0.60 0.16 250);
-  --color-brand-600: oklch(0.50 0.16 250);
+  /* Brand color scale — Amber Gold */
+  --color-brand-50:  oklch(0.97 0.04 80);
+  --color-brand-100: oklch(0.93 0.08 78);
+  --color-brand-200: oklch(0.87 0.13 76);
+  --color-brand-400: oklch(0.82 0.17 74);
+  --color-brand-500: oklch(0.78 0.17 75);   /* #F59E0B — primary amber */
+  --color-brand-600: oklch(0.68 0.17 72);   /* darker amber hover */
 
-  /* Surface colors — light theme defaults. Flip for dark theme:
-     surface-50 becomes near-black, surface-900 becomes near-white */
-  --color-surface-50: oklch(0.985 0.002 250);
-  --color-surface-100: oklch(0.96 0.004 250);
-  --color-surface-200: oklch(0.92 0.006 250);
-  --color-surface-800: oklch(0.30 0.015 250);
-  --color-surface-900: oklch(0.20 0.015 250);
-  --color-surface-950: oklch(0.14 0.012 250);
+  /* Surface scale — Dark theme (near-black → white) */
+  --color-surface-50:  oklch(0.15 0.025 258);  /* #0F172A — near-black hero/page bg */
+  --color-surface-100: oklch(0.19 0.025 255);  /* #111827 alt section bg */
+  --color-surface-200: oklch(0.24 0.025 252);  /* #1E293B deep slate cards */
+  --color-surface-300: oklch(0.30 0.025 250);  /* card hover / border */
+  --color-surface-800: oklch(0.65 0.04  250);  /* muted text #94A3B8 */
+  --color-surface-900: oklch(0.88 0.008 250);  /* secondary text */
+  --color-surface-950: oklch(0.99 0.002 250);  /* white text #F8FAFC */
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* -----------------------------------------------------------------------
+   Base styles
+   ----------------------------------------------------------------------- */
+body {
+  background-color: oklch(0.15 0.025 258);
+  color: oklch(0.99 0.002 250);
+}
+
+/* -----------------------------------------------------------------------
+   Page-load animations
+   ----------------------------------------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 0.80; }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+  animation: fadeIn 0.7s ease-out both;
 }
 
 .animate-slide-up {
-  animation: slideUp 0.6s ease-out both;
+  animation: slideUp 0.7s ease-out both;
 }
 
-/* Staggered animation delays for cascading reveals */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.32s; }
+.delay-400 { animation-delay: 0.44s; }
+.delay-500 { animation-delay: 0.56s; }
+
+/* -----------------------------------------------------------------------
+   Hero gradient layers
+   ----------------------------------------------------------------------- */
+.hero-bg {
+  position: relative;
+  background-color: oklch(0.15 0.025 258);
+}
+
+/* Amber glow — main spotlight behind headline */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 30%,
+      oklch(0.78 0.17 75 / 0.18) 0%,
+      oklch(0.78 0.17 75 / 0.06) 50%,
+      transparent 80%),
+    radial-gradient(ellipse 45% 35% at 78% 65%,
+      oklch(0.68 0.14 60 / 0.10) 0%,
+      transparent 65%),
+    radial-gradient(ellipse 50% 40% at 18% 72%,
+      oklch(0.24 0.025 252 / 0.60) 0%,
+      transparent 70%),
+    linear-gradient(170deg,
+      oklch(0.20 0.028 260) 0%,
+      oklch(0.15 0.025 258) 55%,
+      oklch(0.13 0.020 255) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grain / noise overlay */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Amber line accent */
+.amber-line {
+  display: inline-block;
+  width: 3rem;
+  height: 3px;
+  background: oklch(0.78 0.17 75);
+  border-radius: 9999px;
+}
+
+/* Skewed divider between hero and stats */
+.skew-divider {
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+/* Feature card hover glow */
+.feature-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border-top: 2px solid transparent;
+}
+
+.feature-card:hover {
+  border-top-color: oklch(0.78 0.17 75);
+  box-shadow: 0 0 28px oklch(0.78 0.17 75 / 0.10);
+  transform: translateY(-2px);
+}
+
+/* Stat number glow */
+.stat-number {
+  text-shadow: 0 0 40px oklch(0.78 0.17 75 / 0.45);
+}

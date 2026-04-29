@@ -1,11 +1,29 @@
 ---
 ---
-<header class="sticky top-0 z-50 border-b border-surface-200 bg-surface-50/80 backdrop-blur-lg">
+<header class="sticky top-0 z-50 border-b border-white/5 bg-surface-50/90 backdrop-blur-lg">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold tracking-tight text-surface-900 font-display">Your New Business</a>
-    <div class="flex items-center gap-6">
-      <a href="/blog" class="text-sm font-medium text-surface-800/60 hover:text-surface-900 transition-colors">Blog</a>
-      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">Get Started</a>
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="inline-block w-2 h-6 bg-brand-500 rounded-sm group-hover:scale-110 transition-transform"></span>
+      <span class="text-lg font-display tracking-widest text-surface-950 uppercase">
+        Edge<span class="text-brand-500">Sales</span>
+      </span>
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#how-it-works" class="text-sm font-medium text-surface-800 hover:text-surface-950 transition-colors tracking-wide">How It Works</a>
+      <a href="#services" class="text-sm font-medium text-surface-800 hover:text-surface-950 transition-colors tracking-wide">Services</a>
+      <a href="#proof" class="text-sm font-medium text-surface-800 hover:text-surface-950 transition-colors tracking-wide">Results</a>
+      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-surface-50 px-5 py-2 rounded hover:bg-brand-600 transition-colors tracking-wide uppercase">
+        Book a Meeting
+      </a>
     </div>
+
+    <!-- Mobile CTA -->
+    <a href="#cta" class="md:hidden text-sm font-semibold bg-brand-500 text-surface-50 px-4 py-2 rounded hover:bg-brand-600 transition-colors uppercase tracking-wide">
+      Book a Meeting
+    </a>
   </nav>
 </header>

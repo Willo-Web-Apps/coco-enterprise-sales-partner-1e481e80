@@ -1,11 +1,50 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="border-t border-surface-200 py-10 mt-auto">
+<footer class="border-t border-white/5 bg-surface-50 py-12 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm font-semibold text-surface-900 font-display">Your New Business</p>
-      <p class="text-sm text-surface-800/50">&copy; {year} Your New Business. All rights reserved.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2 mb-4 group">
+          <span class="inline-block w-2 h-6 bg-brand-500 rounded-sm"></span>
+          <span class="text-lg font-display tracking-widest text-surface-950 uppercase">
+            Edge<span class="text-brand-500">Sales</span>
+          </span>
+        </a>
+        <p class="text-sm text-surface-800 leading-relaxed max-w-xs">
+          The dedicated enterprise sales arm of <a href="https://www.edgeof.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors">Edge of Company</a>. We generate qualified leads and book meetings for COCO AI.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest text-surface-800 uppercase mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-surface-800">
+          <li><a href="#how-it-works" class="hover:text-surface-950 transition-colors">How It Works</a></li>
+          <li><a href="#services" class="hover:text-surface-950 transition-colors">Services</a></li>
+          <li><a href="#proof" class="hover:text-surface-950 transition-colors">Results</a></li>
+          <li><a href="https://www.edgeof.xyz" target="_blank" rel="noopener" class="hover:text-surface-950 transition-colors">Edge of Company ↗</a></li>
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest text-surface-800 uppercase mb-4">Get In Touch</h4>
+        <p class="text-sm text-surface-800 mb-4">Ready to fill your pipeline with enterprise AI deals?</p>
+        <a href="#cta" class="inline-block text-sm font-semibold bg-brand-500 text-surface-50 px-5 py-2.5 rounded hover:bg-brand-600 transition-colors uppercase tracking-wide">
+          Book a Strategy Call
+        </a>
+        <p class="mt-3 text-xs text-surface-800">Powered by <a href="https://coco.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors">COCO AI ↗</a></p>
+      </div>
     </div>
+
+    <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <p class="text-xs text-surface-800">&copy; {year} EdgeSales · An <a href="https://www.edgeof.xyz" target="_blank" rel="noopener" class="hover:text-brand-500 transition-colors">Edge of Company</a> operation.</p>
+      <p class="text-xs text-surface-800">Affiliate partner of <a href="https://coco.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors">COCO AI</a></p>
+    </div>
+
   </div>
 </footer>
