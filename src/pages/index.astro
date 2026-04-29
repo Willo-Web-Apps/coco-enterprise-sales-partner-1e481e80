@@ -2,503 +2,781 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base
-  title="EdgeSales — We Get You In the Room"
-  description="EdgeSales generates qualified leads and books meetings for COCO AI. We turn enterprise prospects into automation-ready clients — fast."
+  title="EdgeSales — Your Business Runs Itself. We Show You How."
+  description="Edge of Company maps your operations, identifies automation wins, and connects you with COCO AI agent teams that work 24/7 — starting in days. Book your free automation assessment."
 >
 
   <!-- ================================================================
-       HERO
+       HERO — Command Center
+       Asymmetric layout: headline left-heavy, micro-proof below
   ================================================================ -->
-  <section class="hero-bg relative min-h-[92vh] flex items-center overflow-hidden">
+  <section class="hero-bg relative min-h-[96vh] flex items-center">
 
-    <!-- Amber spotlight — animated -->
-    <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-brand-500/10 blur-[120px] animate-pulse-glow pointer-events-none z-0"></div>
+    <!-- Grid overlay: subtle ops-room mesh -->
+    <div class="grid-overlay" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-      <div class="max-w-4xl">
+    <!-- Animated amber orb — upper-left, matches ::before spotlight -->
+    <div
+      aria-hidden="true"
+      class="absolute top-[5%] left-[4%] w-[520px] h-[420px] rounded-full pointer-events-none z-[2] animate-pulse-glow"
+      style="background: radial-gradient(ellipse 70% 60% at 30% 40%, oklch(0.78 0.17 75 / 0.12) 0%, transparent 68%); filter: blur(55px);"
+    ></div>
 
-        <!-- Eyebrow -->
-        <div class="flex items-center gap-3 mb-6 animate-slide-up">
+    <!-- Secondary warm orb — lower right -->
+    <div
+      aria-hidden="true"
+      class="absolute bottom-[10%] right-[8%] w-[320px] h-[260px] rounded-full pointer-events-none z-[2] animate-pulse-glow"
+      style="background: radial-gradient(ellipse at center, oklch(0.67 0.14 68 / 0.09) 0%, transparent 70%); filter: blur(50px); animation-delay: 3.5s;"
+    ></div>
+
+    <!-- Hero content — deliberately left-heavy, not centred -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-32 md:pt-28 md:pb-44">
+
+      <!-- Eyebrow -->
+      <div class="eyebrow mb-7 animate-slide-up">
+        <span class="amber-line"></span>
+        AI Automation Advisory
+        <span
+          class="inline-block w-px h-3 bg-surface-700 mx-1"
+          aria-hidden="true"
+        ></span>
+        Powered by COCO AI
+      </div>
+
+      <!-- Headline — full Bebas Neue, two-tone -->
+      <h1
+        class="font-display uppercase leading-[0.92] text-surface-950 animate-slide-up delay-100"
+        style="font-size: clamp(3.8rem, 10.5vw, 9.5rem); letter-spacing: 0.01em; max-width: 14ch;"
+      >
+        Your Business<br />
+        Runs Itself.<br />
+        <span
+          class="text-brand-500"
+          style="display: inline-block; text-shadow: 0 0 60px oklch(0.78 0.17 75 / 0.30);"
+        >
+          We Show<br class="sm:hidden" /> You How.
+        </span>
+      </h1>
+
+      <!-- Sub-headline — slightly offset right on large screens for asymmetry -->
+      <p
+        class="mt-8 text-base md:text-lg text-surface-900 max-w-lg md:max-w-xl leading-relaxed font-light animate-slide-up delay-200 md:ml-4"
+      >
+        Edge of Company maps your workflows, identifies your highest-value automation wins, and connects you with
+        <strong class="font-semibold text-surface-950">COCO AI agent teams</strong> that run 24/7 —
+        deployed in days, not quarters.
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-9 flex flex-wrap gap-3 items-center animate-slide-up delay-300">
+        <a
+          href="mailto:info@edgeof.xyz?subject=Free%20Automation%20Assessment%20Request"
+          class="btn-primary"
+        >
+          Book a Free Automation Assessment
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <a href="#how-it-works" class="btn-ghost">
+          See How It Works
+        </a>
+      </div>
+
+      <!-- Micro-proof row — wraps gracefully on mobile -->
+      <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 animate-slide-up delay-400">
+        {[
+          '30-minute call — no pitch',
+          '1,001 proven AI use cases',
+          'AI agent teams from $99/mo',
+        ].map((item) => (
+          <div class="flex items-center gap-2 text-sm text-surface-800">
+            <svg class="w-3.5 h-3.5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            {item}
+          </div>
+        ))}
+
+        <!-- Powered-by badge — separate line on mobile -->
+        <a
+          href="https://coco.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="powered-badge"
+          aria-label="Powered by COCO AI — opens coco.xyz"
+        >
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+          </svg>
+          Powered by COCO AI
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom fade into problem section -->
+    <div class="hero-fade-bottom" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- ================================================================
+       THE PROBLEM — 3 pain cards
+       Left-aligned header, full-width card grid
+  ================================================================ -->
+  <section id="problem" class="bg-surface-50 py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0" aria-hidden="true"><div class="section-separator"></div></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="max-w-2xl mb-14 animate-fade-in">
+        <div class="eyebrow mb-5">
           <span class="amber-line"></span>
-          <span class="text-xs font-semibold tracking-[0.25em] text-brand-500 uppercase">
-            Enterprise AI Sales Partner
-          </span>
+          Sound Familiar?
+        </div>
+        <h2
+          class="font-display uppercase text-surface-950 leading-[0.93]"
+          style="font-size: clamp(2.4rem, 5.5vw, 5rem); letter-spacing: 0.01em;"
+        >
+          Your Business Is<br />
+          <span class="text-brand-500">Hemorrhaging Hours</span><br />
+          Every Single Week
+        </h2>
+      </div>
+
+      <!-- Pain cards — left-border accent, no uniform card-dark class to avoid hover conflict -->
+      <div class="grid md:grid-cols-3 gap-5">
+
+        <div class="card-problem p-7 rounded-r-lg animate-fade-in delay-100">
+          <div class="icon-badge mb-5">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.65rem] text-surface-950 uppercase leading-tight mb-3" style="letter-spacing: 0.02em;">
+            Drowning in Repetitive Work
+          </h3>
+          <p class="text-surface-900 font-light text-sm leading-relaxed">
+            Data entry, follow-ups, report generation, scheduling — your team burns hours daily on work that adds no creative or strategic value. Every hour costs you money and kills morale.
+          </p>
+          <div class="mt-5 pt-5 border-t border-surface-300/30">
+            <p class="text-xs text-brand-400 font-bold tracking-[0.18em] uppercase">
+              23 hrs/week per employee — lost to tasks AI handles in seconds
+            </p>
+          </div>
         </div>
 
-        <!-- Headline -->
-        <h1 class="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none tracking-wide text-surface-950 uppercase animate-slide-up delay-100">
-          Your Next<br />
-          <span class="text-brand-500">Enterprise Deal</span><br />
-          Starts Here
-        </h1>
+        <div class="card-problem p-7 rounded-r-lg animate-fade-in delay-200">
+          <div class="icon-badge mb-5">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.65rem] text-surface-950 uppercase leading-tight mb-3" style="letter-spacing: 0.02em;">
+            Can't Scale Without More Headcount
+          </h3>
+          <p class="text-surface-900 font-light text-sm leading-relaxed">
+            Every new client or project means another hire. Your headcount grows faster than margin. AI agent teams break this equation entirely — they scale in minutes, work nights and weekends, and cost a fraction of a full-time employee.
+          </p>
+          <div class="mt-5 pt-5 border-t border-surface-300/30">
+            <p class="text-xs text-brand-400 font-bold tracking-[0.18em] uppercase">
+              AI agents = 24/7 output at ~10% of the cost of a hire
+            </p>
+          </div>
+        </div>
 
-        <!-- Sub -->
-        <p class="mt-8 text-lg md:text-xl text-surface-900 max-w-2xl leading-relaxed font-light animate-slide-up delay-200">
-          EdgeSales generates qualified leads and books meetings for <span class="text-surface-950 font-semibold">COCO AI</span> — turning enterprise prospects into automation-ready clients, on your behalf.
+        <div class="card-problem p-7 rounded-r-lg animate-fade-in delay-300">
+          <div class="icon-badge mb-5">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.65rem] text-surface-950 uppercase leading-tight mb-3" style="letter-spacing: 0.02em;">
+            No Idea Where AI Actually Fits
+          </h3>
+          <p class="text-surface-900 font-light text-sm leading-relaxed">
+            The AI landscape is loud with tools, hype, and contradictory advice. You know automation is coming, but you don't know what to trust, what to implement first, or how to do it without disrupting what already works.
+          </p>
+          <div class="mt-5 pt-5 border-t border-surface-300/30">
+            <p class="text-xs text-brand-400 font-bold tracking-[0.18em] uppercase">
+              Our free assessment gives you a concrete answer — in 30 minutes
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       HOW IT WORKS — 3-step process
+       Centered header, ghost step numbers, amber connector
+  ================================================================ -->
+  <section id="how-it-works" class="bg-surface-100 py-20 md:py-32 relative">
+    <div class="absolute top-0 left-0 right-0" aria-hidden="true"><div class="section-separator"></div></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header — centred -->
+      <div class="text-center mb-20 animate-fade-in">
+        <div class="eyebrow justify-center mb-5">
+          <span class="amber-line"></span>
+          How It Works
+          <span class="amber-line"></span>
+        </div>
+        <h2
+          class="font-display uppercase text-surface-950 leading-[0.93]"
+          style="font-size: clamp(2.4rem, 5.5vw, 5.5rem); letter-spacing: 0.01em;"
+        >
+          Three Steps From<br />
+          <span class="text-brand-500">Manual to Automated</span>
+        </h2>
+        <p class="mt-6 text-surface-900 font-light text-base max-w-lg mx-auto leading-relaxed">
+          No technical expertise needed. No disruption to live operations. Just a guided path from your current workflow to one that runs itself.
         </p>
+      </div>
 
-        <!-- CTAs -->
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 animate-slide-up delay-300">
-          <a
-            href="#cta"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-500 text-surface-50 font-semibold rounded hover:bg-brand-600 transition-colors text-base uppercase tracking-wide"
+      <!-- Steps — relative container for the connector line + ghost numbers -->
+      <div class="relative">
+        <!-- Amber connector line — desktop only -->
+        <div class="process-connector hidden md:block" aria-hidden="true"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+
+          <!-- Step 01 -->
+          <div class="relative overflow-visible animate-fade-in delay-100">
+            <!-- Ghost number sits behind the card -->
+            <div class="step-ghost" aria-hidden="true">01</div>
+            <div class="card-dark p-7 md:p-8 relative z-10 h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-11 h-11 rounded-full bg-brand-500 flex items-center justify-center flex-shrink-0"
+                  style="box-shadow: 0 0 0 4px oklch(0.17 0.040 256), 0 0 20px oklch(0.78 0.17 75 / 0.25);"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="oklch(0.11 0.025 258)" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </div>
+                <span class="badge-amber">Step 01</span>
+              </div>
+              <h3
+                class="font-display uppercase text-surface-950 leading-tight mb-3"
+                style="font-size: 1.85rem; letter-spacing: 0.02em;"
+              >
+                Free Assessment
+              </h3>
+              <p class="text-surface-900 font-light text-sm leading-relaxed flex-1">
+                We map your workflows in a focused 30-minute session and identify your top 3 automation opportunities — ranked by time saved, revenue impact, and deployment speed. Not generic advice. Specific, named wins for your operations.
+              </p>
+              <div class="mt-6 flex items-center gap-2 text-xs text-brand-400 font-bold tracking-[0.15em] uppercase">
+                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                30 min · Free · Zero obligation
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="relative overflow-visible animate-fade-in delay-200">
+            <div class="step-ghost" aria-hidden="true">02</div>
+            <div class="card-dark p-7 md:p-8 relative z-10 h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-11 h-11 rounded-full bg-brand-500 flex items-center justify-center flex-shrink-0"
+                  style="box-shadow: 0 0 0 4px oklch(0.17 0.040 256), 0 0 20px oklch(0.78 0.17 75 / 0.25);"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="oklch(0.11 0.025 258)" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+                  </svg>
+                </div>
+                <span class="badge-amber">Step 02</span>
+              </div>
+              <h3
+                class="font-display uppercase text-surface-950 leading-tight mb-3"
+                style="font-size: 1.85rem; letter-spacing: 0.02em;"
+              >
+                AI Team Design
+              </h3>
+              <p class="text-surface-900 font-light text-sm leading-relaxed flex-1">
+                We match your needs to the right COCO AI agent configuration from 1,001 proven enterprise use cases. You receive a concrete deployment plan — which agents handle which tasks, how they integrate with your tools, and what results to expect in week one.
+              </p>
+              <div class="mt-6 flex items-center gap-2 text-xs text-brand-400 font-bold tracking-[0.15em] uppercase">
+                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                Matched to your exact workflow
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="relative overflow-visible animate-fade-in delay-300">
+            <div class="step-ghost" aria-hidden="true">03</div>
+            <div class="card-dark p-7 md:p-8 relative z-10 h-full flex flex-col">
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-11 h-11 rounded-full bg-brand-500 flex items-center justify-center flex-shrink-0"
+                  style="box-shadow: 0 0 0 4px oklch(0.17 0.040 256), 0 0 20px oklch(0.78 0.17 75 / 0.25);"
+                >
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="oklch(0.11 0.025 258)" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                  </svg>
+                </div>
+                <span class="badge-amber">Step 03</span>
+              </div>
+              <h3
+                class="font-display uppercase text-surface-950 leading-tight mb-3"
+                style="font-size: 1.85rem; letter-spacing: 0.02em;"
+              >
+                Deploy &amp; Win
+              </h3>
+              <p class="text-surface-900 font-light text-sm leading-relaxed flex-1">
+                Your AI employees go live in days. We handle the full handoff to COCO AI's deployment team and stay involved until results land. This is not a referral — it's a guided transformation with a named account manager on every step.
+              </p>
+              <div class="mt-6 flex items-center gap-2 text-xs text-brand-400 font-bold tracking-[0.15em] uppercase">
+                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7Z" />
+                </svg>
+                Live in days, not quarters
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mid-section CTA nudge -->
+      <div class="text-center mt-14 animate-fade-in delay-400">
+        <a
+          href="mailto:info@edgeof.xyz?subject=Free%20Automation%20Assessment%20Request"
+          class="btn-primary inline-flex"
+        >
+          Start with a Free Assessment
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+        <p class="mt-3 text-xs text-surface-800 tracking-wide">Free 30-minute call. Real answers. Zero fluff.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       PROOF / STATS — live dashboard tiles
+       Asymmetric 2-col header + 2×2 proof grid
+  ================================================================ -->
+  <section id="proof" class="bg-surface-50 py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0" aria-hidden="true"><div class="section-separator"></div></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header — left/right split -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 animate-fade-in">
+        <div>
+          <div class="eyebrow mb-5">
+            <span class="amber-line"></span>
+            Documented Results
+          </div>
+          <h2
+            class="font-display uppercase text-surface-950 leading-[0.93]"
+            style="font-size: clamp(2.4rem, 5.5vw, 5rem); letter-spacing: 0.01em;"
           >
-            Book a Strategy Call
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            Numbers Don't Lie.<br />
+            <span class="text-brand-500">Automation Works.</span>
+          </h2>
+        </div>
+        <p class="text-surface-900 font-light text-sm max-w-xs lg:text-right leading-relaxed lg:mb-2">
+          These aren't projections. Every figure below is a documented outcome from a live COCO AI deployment — in sectors just like yours.
+        </p>
+      </div>
+
+      <!-- Proof grid — 2×2, each a "dashboard tile" -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+        <!-- Tile 1 — Bank -->
+        <div class="proof-card animate-fade-in delay-100">
+          <div class="flex items-start justify-between mb-5">
+            <span class="badge-amber">Financial Services</span>
+            <svg class="w-5 h-5 text-surface-700" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+            </svg>
+          </div>
+
+          <!-- "Before → After" stat display -->
+          <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1 mb-5">
+            <span
+              class="font-display stat-glow leading-none"
+              style="font-size: clamp(2.5rem, 6vw, 4.5rem);"
+            >3 Days</span>
+            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 self-center" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-label="reduced to" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
-          </a>
+            <span
+              class="font-display text-surface-950 leading-none"
+              style="font-size: clamp(2rem, 4.5vw, 3.5rem);"
+            >2 Hours</span>
+          </div>
+
+          <p class="text-surface-950 font-semibold text-sm mb-2 leading-snug">
+            Loan due diligence at a major state-owned bank
+          </p>
+          <p class="text-surface-800 text-sm font-light leading-relaxed">
+            Full loan application reviews that took analysts three days now complete in under two hours — higher accuracy, full audit trail, zero additional headcount.
+          </p>
+        </div>
+
+        <!-- Tile 2 — Dev team -->
+        <div class="proof-card animate-fade-in delay-200">
+          <div class="flex items-start justify-between mb-5">
+            <span class="badge-amber">Technology</span>
+            <svg class="w-5 h-5 text-surface-700" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+            </svg>
+          </div>
+          <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1 mb-5">
+            <span
+              class="font-display stat-glow leading-none"
+              style="font-size: clamp(2.5rem, 6vw, 4.5rem);"
+            >10×</span>
+            <span class="text-surface-900 font-light text-base self-center">faster releases</span>
+          </div>
+          <p class="text-surface-950 font-semibold text-sm mb-2 leading-snug">
+            Engineering team of 6, using COCO AI agent teams
+          </p>
+          <p class="text-surface-800 text-sm font-light leading-relaxed">
+            AI agents handled code review, testing, and deployment pipelines. Release cadence went from biweekly to daily — same headcount, ten times the output.
+          </p>
+        </div>
+
+        <!-- Tile 3 — CRM -->
+        <div class="proof-card animate-fade-in delay-300">
+          <div class="flex items-start justify-between mb-5">
+            <span class="badge-amber">Sales Operations</span>
+            <svg class="w-5 h-5 text-surface-700" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+            </svg>
+          </div>
+          <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1 mb-5">
+            <span
+              class="font-display stat-glow leading-none"
+              style="font-size: clamp(2.5rem, 6vw, 4.5rem);"
+            >33%</span>
+            <span class="text-surface-900 font-light text-base self-center">trial-to-paid conversion</span>
+          </div>
+          <p class="text-surface-950 font-semibold text-sm mb-2 leading-snug">
+            A full CRM built and operated entirely by AI agents
+          </p>
+          <p class="text-surface-800 text-sm font-light leading-relaxed">
+            Lead capture → nurture sequences → deal closing — all managed autonomously by COCO agents. 33% trial-to-paid sustained over six months with no additional sales staff.
+          </p>
+        </div>
+
+        <!-- Tile 4 — 1,001 use cases -->
+        <div class="proof-card animate-fade-in delay-400">
+          <div class="flex items-start justify-between mb-5">
+            <span class="badge-amber">All Industries</span>
+            <svg class="w-5 h-5 text-surface-700" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+            </svg>
+          </div>
+          <div class="flex items-baseline flex-wrap gap-x-3 gap-y-1 mb-5">
+            <span
+              class="font-display stat-glow leading-none"
+              style="font-size: clamp(2.5rem, 6vw, 4.5rem);"
+            >1,001</span>
+            <span class="text-surface-900 font-light text-base self-center">live use cases</span>
+          </div>
+          <p class="text-surface-950 font-semibold text-sm mb-2 leading-snug">
+            Proven enterprise automations — ready to deploy now
+          </p>
+          <p class="text-surface-800 text-sm font-light leading-relaxed">
+            COCO AI has documented 1,001 live deployments across finance, logistics, healthcare, professional services, tech, and ops. Whatever your workflow, there's a proven playbook waiting for you.
+          </p>
           <a
-            href="#how-it-works"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/10 text-surface-900 font-medium rounded hover:border-brand-500/40 hover:text-surface-950 transition-colors text-base tracking-wide"
+            href="https://coco.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-1.5 text-xs text-brand-400 hover:text-brand-500 font-bold tracking-[0.15em] uppercase transition-colors"
           >
-            See How It Works
+            See COCO AI's full library →
           </a>
         </div>
 
-        <!-- Micro-proof -->
-        <p class="mt-6 text-xs text-surface-800 tracking-wide animate-slide-up delay-400">
-          Powered by <a href="https://coco.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors">COCO AI</a> · Official affiliate partner of <a href="https://www.edgeof.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors">Edge of Company</a>
-        </p>
-      </div>
-    </div>
-
-    <!-- Bottom fade to stats section -->
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-surface-100 pointer-events-none z-10"></div>
-  </section>
-
-
-  <!-- ================================================================
-       PROOF STATS BAR  (skewed into next section)
-  ================================================================ -->
-  <section id="proof" class="bg-surface-100 py-16 relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Label -->
-      <p class="text-center text-xs font-semibold tracking-[0.25em] text-surface-800 uppercase mb-12">
-        What Enterprise AI Sales Actually Produces
-      </p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-white/5">
-
-        <div class="text-center px-6">
-          <p class="stat-number font-display text-5xl md:text-6xl text-brand-500 tracking-wide">72%</p>
-          <p class="mt-2 text-sm text-surface-900 font-medium">Qualified Lead Rate</p>
-          <p class="mt-1 text-xs text-surface-800">vs. industry avg. of 22%</p>
-        </div>
-
-        <div class="text-center px-6">
-          <p class="stat-number font-display text-5xl md:text-6xl text-brand-500 tracking-wide">14</p>
-          <p class="mt-2 text-sm text-surface-900 font-medium">Days to First Meeting</p>
-          <p class="mt-1 text-xs text-surface-800">from pipeline activation</p>
-        </div>
-
-        <div class="text-center px-6">
-          <p class="stat-number font-display text-5xl md:text-6xl text-brand-500 tracking-wide">$2M+</p>
-          <p class="mt-2 text-sm text-surface-900 font-medium">Pipeline Generated</p>
-          <p class="mt-1 text-xs text-surface-800">for COCO AI clients</p>
-        </div>
-
-        <div class="text-center px-6">
-          <p class="stat-number font-display text-5xl md:text-6xl text-brand-500 tracking-wide">100%</p>
-          <p class="mt-2 text-sm text-surface-900 font-medium">Enterprise Focus</p>
-          <p class="mt-1 text-xs text-surface-800">100-5,000 employee firms</p>
-        </div>
-
       </div>
     </div>
   </section>
 
 
   <!-- ================================================================
-       TRUST / LOGO BAR
+       USE CASES GRID — 6 tiles
+       3×2, with top-bar hover accent + tag chips
   ================================================================ -->
-  <section class="bg-surface-50 border-y border-white/5 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-xs font-semibold tracking-[0.25em] text-surface-800 uppercase mb-8">
-        We Speak Directly To Decision-Makers In These Sectors
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-        <!-- Sector badges instead of logos (no images needed) -->
-        {[
-          'Financial Services',
-          'Operations & Logistics',
-          'Healthcare IT',
-          'Professional Services',
-          'Manufacturing',
-          'SaaS & Technology',
-        ].map((sector) => (
-          <span class="text-sm font-semibold text-surface-900 tracking-widest uppercase border border-white/8 px-4 py-2 rounded-sm hover:border-brand-500/40 hover:text-surface-950 transition-colors">
-            {sector}
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
+  <section id="use-cases" class="bg-surface-100 py-20 md:py-28 relative">
+    <div class="absolute top-0 left-0 right-0" aria-hidden="true"><div class="section-separator"></div></div>
 
-
-  <!-- ================================================================
-       PROBLEM → SOLUTION  (enterprise layout archetype)
-  ================================================================ -->
-  <section class="bg-surface-100 py-24 md:py-32">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-
-        <!-- Problem side -->
-        <div>
-          <span class="amber-line block mb-5"></span>
-          <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase text-surface-950 leading-none tracking-wide mb-6">
-            Enterprise Deals Don't Close Themselves
-          </h2>
-          <p class="text-surface-900 text-lg font-light leading-relaxed mb-6">
-            Your CTO has the budget. Your COO feels the workflow pain. Your operations team is burning hours on tasks COCO AI automates in minutes. But they're fielding a hundred outbound messages a week and yours looks exactly like the rest.
-          </p>
-          <ul class="space-y-3">
-            {[
-              'Generic outreach gets deleted before it\'s read',
-              'Your team doesn\'t speak "enterprise procurement"',
-              'Decision cycles stall without a dedicated inside track',
-              'Every week without automation is revenue left on the table',
-            ].map((problem) => (
-              <li class="flex items-start gap-3 text-sm text-surface-900">
-                <span class="w-1 h-1 rounded-full bg-brand-500 mt-2 flex-shrink-0 block"></span>
-                {problem}
-              </li>
-            ))}
-          </ul>
+      <!-- Header -->
+      <div class="text-center mb-14 animate-fade-in">
+        <div class="eyebrow justify-center mb-5">
+          <span class="amber-line"></span>
+          Automation Playbooks
+          <span class="amber-line"></span>
         </div>
-
-        <!-- Solution side -->
-        <div class="bg-surface-200 rounded-lg p-8 md:p-10 border border-white/5 feature-card">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded bg-brand-500/15 text-brand-500">
-              <!-- Target icon -->
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-            </span>
-            <h3 class="font-semibold text-surface-950 tracking-wide uppercase text-sm">The EdgeSales Solution</h3>
-          </div>
-          <p class="text-surface-900 text-base font-light leading-relaxed mb-6">
-            We are the dedicated sales arm inside COCO AI's growth engine. We identify your exact buyer, build a tailored outreach sequence, qualify every prospect against enterprise criteria, and hand you a calendar full of meetings with decision-makers ready to talk deployment.
-          </p>
-          <div class="grid grid-cols-2 gap-4">
-            {[
-              { label: 'ICP Mapping', desc: 'We find your exact buyer' },
-              { label: 'Outbound Sequences', desc: 'Precision messaging at scale' },
-              { label: 'Lead Qualification', desc: 'Budget, authority, need, timeline' },
-              { label: 'Meeting Booking', desc: 'Demo-ready prospects only' },
-            ].map((item) => (
-              <div class="bg-surface-50/5 rounded p-3 border border-white/5">
-                <p class="text-xs font-semibold text-brand-400 uppercase tracking-wide mb-1">{item.label}</p>
-                <p class="text-xs text-surface-900">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================================
-       HOW IT WORKS
-  ================================================================ -->
-  <section id="how-it-works" class="bg-surface-50 py-24 md:py-32">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="text-center mb-16">
-        <span class="amber-line block mx-auto mb-5"></span>
-        <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase text-surface-950 leading-none tracking-wide">
-          From Cold Pipeline To Booked Meetings
-        </h2>
-        <p class="mt-6 text-surface-900 font-light text-lg max-w-xl mx-auto">
-          A four-step process engineered for enterprise AI sales — no guesswork, no wasted outreach.
-        </p>
-      </div>
-
-      <div class="relative">
-        <!-- Connecting line -->
-        <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent z-0"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-
-          {[
-            {
-              step: '01',
-              icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />',
-              title: 'ICP & Target List',
-              desc: 'We map your ideal enterprise buyer — firmographics, tech stack, workflow pain, decision hierarchy.',
-            },
-            {
-              step: '02',
-              icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />',
-              title: 'Precision Outreach',
-              desc: 'Multi-channel sequences — email, LinkedIn, call — crafted to resonate with enterprise operations leaders.',
-            },
-            {
-              step: '03',
-              icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />',
-              title: 'Qualify & Score',
-              desc: 'Every lead scored on BANT criteria. Only buyers with budget, authority, and a live need reach your calendar.',
-            },
-            {
-              step: '04',
-              icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />',
-              title: 'Meeting Delivered',
-              desc: 'A confirmed calendar invite lands in your inbox. You show up, we\'ve already warmed the room.',
-            },
-          ].map((item, i) => (
-            <div class="flex flex-col items-center text-center bg-surface-200 rounded-lg p-7 border border-white/5 feature-card">
-              <div class="relative mb-5">
-                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-500/15 text-brand-500 ring-4 ring-surface-100">
-                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" set:html={item.icon} />
-                </span>
-                <span class="absolute -top-2 -right-3 font-display text-xs text-brand-500/60 tracking-widest">{item.step}</span>
-              </div>
-              <h3 class="font-semibold text-surface-950 uppercase tracking-wide text-sm mb-3">{item.title}</h3>
-              <p class="text-surface-900 text-sm font-light leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================================
-       SERVICES  (feature deep-dive)
-  ================================================================ -->
-  <section id="services" class="bg-surface-100 py-24 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="mb-16">
-        <span class="amber-line block mb-5"></span>
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase text-surface-950 leading-none tracking-wide max-w-xl">
-            Everything The Pipeline Needs
-          </h2>
-          <p class="text-surface-900 font-light text-base max-w-sm md:text-right">
-            Full-service enterprise sales execution — from first contact to confirmed demo with COCO AI's team.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        {[
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />',
-            title: 'Enterprise ICP Research',
-            desc: 'Deep-dive identification of enterprises evaluating AI automation right now — by industry, size, tech stack, and decision signals.',
-            badge: 'Foundation',
-          },
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />',
-            title: 'Multi-Channel Outreach',
-            desc: 'Email sequences, LinkedIn DMs, and call scripts that speak C-suite — not vendor spam.',
-            badge: 'Outbound',
-          },
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />',
-            title: 'Pipeline Reporting',
-            desc: 'Weekly dashboards on outreach volume, response rates, qualification funnels, and meetings booked.',
-            badge: 'Visibility',
-          },
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />',
-            title: 'COCO AI Positioning',
-            desc: 'We know COCO AI\'s automation capabilities inside out. We position them precisely for each enterprise buyer\'s pain.',
-            badge: 'Product-Fit',
-          },
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />',
-            title: 'Objection Handling',
-            desc: 'Pre-built battle cards for security reviews, procurement stalls, and "we\'re already using [competitor]" objections.',
-            badge: 'Enablement',
-          },
-          {
-            icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />',
-            title: 'COCO Referral Routing',
-            desc: 'When prospects are ready to move, we route them via our affiliate link to COCO AI — seamlessly, with full attribution.',
-            badge: 'Conversion',
-          },
-        ].map((service) => (
-          <div class="bg-surface-200 rounded-lg p-7 border border-white/5 feature-card">
-            <div class="flex items-start justify-between mb-5">
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded bg-brand-500/10 text-brand-500">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" set:html={service.icon} />
-              </span>
-              <span class="text-[10px] font-bold tracking-[0.2em] text-brand-400 uppercase bg-brand-500/10 px-2.5 py-1 rounded-sm">
-                {service.badge}
-              </span>
-            </div>
-            <h3 class="font-semibold text-surface-950 text-sm uppercase tracking-wide mb-3">{service.title}</h3>
-            <p class="text-surface-900 text-sm font-light leading-relaxed">{service.desc}</p>
-          </div>
-        ))}
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================================
-       CASE STUDY SNIPPET / TESTIMONIAL
-  ================================================================ -->
-  <section class="bg-surface-200 py-24 md:py-32 border-y border-white/5">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="grid md:grid-cols-5 gap-12 items-center">
-
-        <!-- Quote side -->
-        <div class="md:col-span-3">
-          <span class="block font-display text-8xl text-brand-500 leading-none mb-2">"</span>
-          <blockquote class="text-xl md:text-2xl font-light text-surface-950 leading-snug md:leading-snug">
-            Within 3 weeks of engaging EdgeSales, we had 11 qualified meetings with enterprise operations leaders — companies we'd been trying to reach for months. They don't just send emails. They know the space.
-          </blockquote>
-          <div class="mt-8 flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-500 font-display text-lg">
-              M
-            </div>
-            <div>
-              <p class="text-sm font-semibold text-surface-950">Marcus T.</p>
-              <p class="text-xs text-surface-800">VP of Partnerships — Series B SaaS, 400 employees</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stats side -->
-        <div class="md:col-span-2 space-y-6">
-          <div class="bg-surface-50/5 rounded-lg p-6 border border-white/5">
-            <p class="stat-number font-display text-5xl text-brand-500 tracking-wide">11</p>
-            <p class="mt-1 text-sm text-surface-900">Qualified meetings booked</p>
-            <p class="text-xs text-surface-800 mt-1">in 21 days</p>
-          </div>
-          <div class="bg-surface-50/5 rounded-lg p-6 border border-white/5">
-            <p class="stat-number font-display text-5xl text-brand-500 tracking-wide">3×</p>
-            <p class="mt-1 text-sm text-surface-900">Faster than in-house SDR</p>
-            <p class="text-xs text-surface-800 mt-1">at 40% of the cost</p>
-          </div>
-          <div class="bg-surface-50/5 rounded-lg p-6 border border-white/5">
-            <p class="stat-number font-display text-5xl text-brand-500 tracking-wide">$680K</p>
-            <p class="mt-1 text-sm text-surface-900">Pipeline created</p>
-            <p class="text-xs text-surface-800 mt-1">from a single campaign</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================================
-       WHY US / DIFFERENTIATION
-  ================================================================ -->
-  <section class="bg-surface-50 py-24 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="text-center mb-16">
-        <span class="amber-line block mx-auto mb-5"></span>
-        <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase text-surface-950 leading-none tracking-wide">
-          Why EdgeSales, Not A Generic Agency
-        </h2>
-      </div>
-
-      <!-- Comparison table -->
-      <div class="overflow-x-auto">
-        <table class="w-full border-collapse">
-          <thead>
-            <tr class="border-b border-white/5">
-              <th class="text-left py-4 pr-8 text-xs font-semibold tracking-[0.2em] text-surface-800 uppercase w-1/3">What You Need</th>
-              <th class="text-center py-4 px-8 text-xs font-semibold tracking-[0.2em] text-surface-800 uppercase w-1/3">Generic Lead-Gen Agency</th>
-              <th class="text-center py-4 px-8 text-xs font-semibold tracking-[0.2em] text-brand-500 uppercase w-1/3">EdgeSales</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              ['Deep AI domain knowledge', false, true],
-              ['Enterprise procurement fluency', false, true],
-              ['COCO AI product expertise', false, true],
-              ['BANT-qualified leads only', false, true],
-              ['Integrated CRM & attribution', false, true],
-              ['Meeting-first guarantee', false, true],
-              ['Seamless COCO onboarding handoff', false, true],
-            ].map(([need, generic, edge]) => (
-              <tr class="border-b border-white/5 hover:bg-white/2 transition-colors">
-                <td class="py-4 pr-8 text-sm text-surface-900 font-light">{need}</td>
-                <td class="py-4 px-8 text-center">
-                  <span class="text-surface-800/40 text-lg">✕</span>
-                </td>
-                <td class="py-4 px-8 text-center">
-                  <span class="text-brand-500 text-lg">✓</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================================
-       FINAL CTA
-  ================================================================ -->
-  <section id="cta" class="bg-surface-50 py-24 md:py-36 relative overflow-hidden">
-
-    <!-- Amber glow behind CTA -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-      <div class="w-[600px] h-[300px] bg-brand-500/8 rounded-full blur-[100px]"></div>
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="amber-line block mx-auto mb-6"></span>
-      <h2 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-surface-950 leading-none tracking-wide mb-6">
-        We Get You<br />
-        <span class="text-brand-500">In The Room</span>
-      </h2>
-      <p class="text-surface-900 font-light text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-        Book a no-obligation strategy call. We'll show you exactly which enterprise prospects are evaluating COCO AI right now — and how we'll get you a meeting within 14 days.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="mailto:hello@edgeof.xyz?subject=EdgeSales%20Strategy%20Call"
-          class="inline-flex items-center justify-center gap-2 px-10 py-4 bg-brand-500 text-surface-50 font-semibold rounded hover:bg-brand-600 transition-colors text-base uppercase tracking-widest"
+        <h2
+          class="font-display uppercase text-surface-950 leading-[0.93]"
+          style="font-size: clamp(2.4rem, 5.5vw, 5rem); letter-spacing: 0.01em;"
         >
-          Book My Strategy Call
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+          Six Places AI Immediately<br />
+          <span class="text-brand-500">Takes Work Off Your Plate</span>
+        </h2>
+        <p class="mt-5 text-surface-900 font-light text-base max-w-lg mx-auto leading-relaxed">
+          These are the six highest-ROI automation categories for mid-market businesses. Your assessment will show you which ones fit your operations — and exactly how to deploy them.
+        </p>
+      </div>
+
+      <!-- 3×2 grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="use-case-tile animate-fade-in delay-100">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            Customer Support AI
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            AI agents triage tickets, resolve FAQs, and run live chat 24/7 — with automatic escalation for anything complex. Deflect 60–80% of support volume without adding staff.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">Live Chat</span>
+            <span class="use-case-tag">Ticket Routing</span>
+            <span class="use-case-tag">24/7 Coverage</span>
+          </div>
+        </div>
+
+        <div class="use-case-tile animate-fade-in delay-150">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.689c0-.864.933-1.406 1.683-.977l7.108 4.061a1.125 1.125 0 0 0 1.118 0l7.108-4.061c.75-.43 1.683.113 1.683.977v7.812c0 .625-.506 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 16.501V8.69Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            Sales Outreach Automation
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            AI agents research prospects, write personalised outreach, follow up on replies, and book meetings into your calendar — all without SDR overhead. Your pipeline fills itself.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">Prospecting</span>
+            <span class="use-case-tag">Personalised Email</span>
+            <span class="use-case-tag">Meeting Booking</span>
+          </div>
+        </div>
+
+        <div class="use-case-tile animate-fade-in delay-200">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            Finance &amp; Reporting Agents
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            Automated reconciliation, invoice processing, and financial reporting. Month-end close in hours. Anomaly detection built in. Audit-ready output as standard.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">Reconciliation</span>
+            <span class="use-case-tag">Invoice Processing</span>
+            <span class="use-case-tag">Auto-Reporting</span>
+          </div>
+        </div>
+
+        <div class="use-case-tile animate-fade-in delay-250">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            HR &amp; Onboarding AI
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            From job posting to day-one onboarding: AI agents screen candidates, schedule interviews, generate offer letters, and run structured onboarding flows without HR overhead.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">CV Screening</span>
+            <span class="use-case-tag">Onboarding Flows</span>
+            <span class="use-case-tag">Compliance Docs</span>
+          </div>
+        </div>
+
+        <div class="use-case-tile animate-fade-in delay-300">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            Operations &amp; Logistics
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            Inventory tracking, supplier communication, order processing, and exception flagging — automated end-to-end. AI escalates only what genuinely needs a human decision.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">Inventory</span>
+            <span class="use-case-tag">Order Processing</span>
+            <span class="use-case-tag">Supplier Comms</span>
+          </div>
+        </div>
+
+        <div class="use-case-tile animate-fade-in delay-400">
+          <div class="icon-badge mb-4">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+            </svg>
+          </div>
+          <h3 class="font-display text-[1.35rem] text-surface-950 uppercase leading-tight mb-2.5" style="letter-spacing: 0.02em;">
+            Code Review &amp; Dev Agents
+          </h3>
+          <p class="text-surface-800 text-sm font-light leading-relaxed mb-4">
+            AI agents run automated code reviews, write and execute tests, flag vulnerabilities, and manage deployment pipelines. Your engineering team ships 10× faster — same headcount.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="use-case-tag">Code Review</span>
+            <span class="use-case-tag">Test Generation</span>
+            <span class="use-case-tag">CI/CD Pipelines</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom nudge -->
+      <p class="text-center mt-11 text-surface-800 text-sm animate-fade-in delay-500">
+        Not sure which applies first?
+        <a
+          href="mailto:info@edgeof.xyz?subject=Free%20Automation%20Assessment%20Request"
+          class="text-brand-400 hover:text-brand-500 font-semibold transition-colors ml-1"
+        >
+          Book your free assessment — we'll map it for you →
+        </a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================================
+       FINAL CTA — Full-width amber/navy gradient
+       Distinctive: diagonal stripe overlay + dual ambient orbs
+  ================================================================ -->
+  <section id="cta" class="cta-bg relative py-24 md:py-40 overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 z-[1]" aria-hidden="true"><div class="section-separator"></div></div>
+
+    <!-- Left amber orb -->
+    <div
+      aria-hidden="true"
+      class="absolute top-1/2 -translate-y-1/2 left-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none animate-pulse-glow z-[1]"
+      style="background: radial-gradient(ellipse at center, oklch(0.78 0.17 75 / 0.16) 0%, transparent 65%); filter: blur(90px);"
+    ></div>
+
+    <!-- Right secondary orb -->
+    <div
+      aria-hidden="true"
+      class="absolute top-1/2 -translate-y-1/2 right-[-3%] w-[380px] h-[380px] rounded-full pointer-events-none animate-pulse-glow z-[1]"
+      style="background: radial-gradient(ellipse at center, oklch(0.67 0.14 68 / 0.10) 0%, transparent 65%); filter: blur(70px); animation-delay: 2.5s;"
+    ></div>
+
+    <!-- Distinctive typographic flourish — oversized "AUTOMATE" watermark -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 flex items-center justify-center pointer-events-none z-[1] overflow-hidden"
+    >
+      <span
+        class="font-display text-surface-950 select-none"
+        style="font-size: clamp(8rem, 22vw, 22rem); letter-spacing: -0.02em; opacity: 0.025; line-height: 1; white-space: nowrap;"
+      >
+        AUTOMATE
+      </span>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <div class="eyebrow justify-center mb-6">
+        <span class="amber-line"></span>
+        Free 30-Minute Assessment
+        <span class="amber-line"></span>
+      </div>
+
+      <h2
+        class="font-display uppercase text-surface-950 leading-[0.92]"
+        style="font-size: clamp(3rem, 8.5vw, 7rem); letter-spacing: 0.01em;"
+      >
+        Find Out Exactly<br />
+        What AI Can Do<br />
+        <span
+          class="text-brand-500"
+          style="text-shadow: 0 0 80px oklch(0.78 0.17 75 / 0.40);"
+        >For Your Business</span>
+      </h2>
+
+      <p class="mt-7 text-surface-900 font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        Book a free 30-minute assessment. No pitch. Just a concrete answer: where automation will save you time and money — and a plan to get your first AI agent live this month.
+      </p>
+
+      <!-- Primary + secondary CTAs -->
+      <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="mailto:info@edgeof.xyz?subject=Free%20Automation%20Assessment%20Request"
+          class="btn-primary text-base px-9 py-4 w-full sm:w-auto justify-center"
+        >
+          Book My Free Assessment
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
         </a>
         <a
           href="https://coco.xyz"
           target="_blank"
-          rel="noopener"
-          class="inline-flex items-center justify-center gap-2 px-10 py-4 border border-white/10 text-surface-900 font-medium rounded hover:border-brand-500/40 hover:text-surface-950 transition-colors text-base tracking-wide"
+          rel="noopener noreferrer"
+          class="btn-ghost px-8 py-4 w-full sm:w-auto justify-center"
         >
           Explore COCO AI ↗
         </a>
       </div>
 
       <p class="mt-5 text-xs text-surface-800 tracking-wide">
-        No commitment required. 30-minute call. Real pipeline insights.
+        Free call · No commitment · Real clarity on where automation fits your business
       </p>
 
-      <!-- COCO referral note -->
-      <div class="mt-12 inline-flex items-center gap-3 bg-surface-200 border border-white/5 rounded-lg px-6 py-4 text-sm text-surface-900">
-        <span class="text-brand-500">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+      <!-- COCO affiliate context note -->
+      <div class="mt-12 inline-flex items-start sm:items-center gap-3 bg-surface-200/30 border border-white/6 rounded-lg px-5 py-4 text-sm text-surface-900 text-left max-w-md mx-auto">
+        <span class="text-brand-500 flex-shrink-0 mt-0.5 sm:mt-0">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
           </svg>
         </span>
-        <span>
-          Ready to onboard with COCO AI directly? We'll route you via our <a href="https://coco.xyz" target="_blank" rel="noopener" class="text-brand-400 hover:text-brand-500 transition-colors font-medium">affiliate link</a> — tracked attribution, zero friction.
+        <span class="leading-relaxed">
+          EdgeSales is an official affiliate partner of{' '}
+          <a
+            href="https://coco.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-brand-400 hover:text-brand-500 font-semibold transition-colors"
+          >
+            COCO AI
+          </a>{' '}
+          — AI agent teams starting at $99/mo. We refer you only after we've confirmed it's the right fit.
         </span>
       </div>
+
     </div>
   </section>
 

@@ -1,46 +1,69 @@
-/* GOOGLE FONTS — must be ABOVE @import "tailwindcss" */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap");
+/* -----------------------------------------------------------------------
+   GOOGLE FONTS — must appear ABOVE @import "tailwindcss"
+   ----------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 @import "tailwindcss";
 
 /* -----------------------------------------------------------------------
-   Design Tokens — EdgeSales
-   Dark-modern enterprise aesthetic
-   Amber gold brand on near-black surfaces
+   Design Tokens — EdgeSales by Edge of Company
+   dark-modern · bold-display · amber-on-navy
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography */
+  /* ── Typography ─────────────────────────────────────────────────── */
   --font-display: 'Bebas Neue', 'Barlow', ui-sans-serif, sans-serif;
-  --font-body: 'Barlow', ui-sans-serif, system-ui, sans-serif;
+  --font-body:    'Barlow', ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand color scale — Amber Gold */
-  --color-brand-50:  oklch(0.97 0.04 80);
-  --color-brand-100: oklch(0.93 0.08 78);
-  --color-brand-200: oklch(0.87 0.13 76);
-  --color-brand-400: oklch(0.82 0.17 74);
-  --color-brand-500: oklch(0.78 0.17 75);   /* #F59E0B — primary amber */
-  --color-brand-600: oklch(0.68 0.17 72);   /* darker amber hover */
+  /* ── Brand — Electric Amber ──────────────────────────────────────── */
+  --color-brand-50:  oklch(0.97 0.035 82);
+  --color-brand-100: oklch(0.93 0.075 80);
+  --color-brand-200: oklch(0.88 0.120 78);
+  --color-brand-400: oklch(0.82 0.160 76);
+  --color-brand-500: oklch(0.78 0.170 75);   /* #F59E0B — primary amber */
+  --color-brand-600: oklch(0.67 0.160 72);   /* #D97706 — hover/darker  */
 
-  /* Surface scale — Dark theme (near-black → white) */
-  --color-surface-50:  oklch(0.15 0.025 258);  /* #0F172A — near-black hero/page bg */
-  --color-surface-100: oklch(0.19 0.025 255);  /* #111827 alt section bg */
-  --color-surface-200: oklch(0.24 0.025 252);  /* #1E293B deep slate cards */
-  --color-surface-300: oklch(0.30 0.025 250);  /* card hover / border */
-  --color-surface-800: oklch(0.65 0.04  250);  /* muted text #94A3B8 */
-  --color-surface-900: oklch(0.88 0.008 250);  /* secondary text */
-  --color-surface-950: oklch(0.99 0.002 250);  /* white text #F8FAFC */
+  /* ── Surface — Dark theme (near-black → near-white) ─────────────── */
+  /* surface-50  = page background (darkest)                           */
+  /* surface-950 = primary text (near-white)                           */
+  --color-surface-50:  oklch(0.13 0.030 258);   /* #0A1628 near-black bg  */
+  --color-surface-100: oklch(0.17 0.040 256);   /* #0F1E3C deep navy      */
+  --color-surface-200: oklch(0.19 0.028 254);   /* #111827 card bg        */
+  --color-surface-300: oklch(0.24 0.025 252);   /* #1E293B card border    */
+  --color-surface-400: oklch(0.34 0.022 250);   /* dividers               */
+  --color-surface-700: oklch(0.55 0.020 248);   /* disabled / tag text    */
+  --color-surface-800: oklch(0.65 0.018 248);   /* muted text #94A3B8     */
+  --color-surface-900: oklch(0.88 0.008 250);   /* secondary text         */
+  --color-surface-950: oklch(0.99 0.002 252);   /* primary text #F8FAFC   */
 }
 
 /* -----------------------------------------------------------------------
-   Base styles
+   Base resets & global
    ----------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: oklch(0.15 0.025 258);
-  color: oklch(0.99 0.002 250);
+  background-color: oklch(0.13 0.030 258);
+  color: oklch(0.99 0.002 252);
+  font-family: var(--font-body);
+  font-size: 1.0625rem; /* 17px base — above 16px minimum */
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth anchor scroll offset for sticky header */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* -----------------------------------------------------------------------
-   Page-load animations
+   Keyframes
    ----------------------------------------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -48,105 +71,625 @@ body {
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0);     }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.55; }
-  50%       { opacity: 0.80; }
+  0%, 100% { opacity: 0.45; transform: scale(1);    }
+  50%       { opacity: 0.75; transform: scale(1.05); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.7s ease-out both;
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.7s ease-out both;
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center;  }
 }
-
-.animate-pulse-glow {
-  animation: pulseGlow 6s ease-in-out infinite;
-}
-
-/* Staggered delays */
-.delay-100 { animation-delay: 0.10s; }
-.delay-200 { animation-delay: 0.20s; }
-.delay-300 { animation-delay: 0.32s; }
-.delay-400 { animation-delay: 0.44s; }
-.delay-500 { animation-delay: 0.56s; }
 
 /* -----------------------------------------------------------------------
-   Hero gradient layers
+   Animation utilities
+   ----------------------------------------------------------------------- */
+.animate-fade-in     { animation: fadeIn   0.80s ease-out both; }
+.animate-slide-up    { animation: slideUp  0.70s ease-out both; }
+.animate-slide-right { animation: slideRight 0.60s ease-out both; }
+.animate-pulse-glow  { animation: pulseGlow 7s ease-in-out infinite; }
+.animate-reveal-up   { animation: revealUp 0.65s cubic-bezier(0.16,1,0.3,1) both; }
+
+/* Stagger delays */
+.delay-75  { animation-delay: 0.075s; }
+.delay-100 { animation-delay: 0.10s;  }
+.delay-150 { animation-delay: 0.15s;  }
+.delay-200 { animation-delay: 0.22s;  }
+.delay-300 { animation-delay: 0.34s;  }
+.delay-400 { animation-delay: 0.46s;  }
+.delay-500 { animation-delay: 0.58s;  }
+.delay-600 { animation-delay: 0.70s;  }
+.delay-700 { animation-delay: 0.82s;  }
+
+/* -----------------------------------------------------------------------
+   Hero — command center background
    ----------------------------------------------------------------------- */
 .hero-bg {
   position: relative;
-  background-color: oklch(0.15 0.025 258);
+  background-color: oklch(0.13 0.030 258);
+  overflow: hidden;
 }
 
-/* Amber glow — main spotlight behind headline */
+/* Atmospheric gradient layers — asymmetric, lighting-based */
 .hero-bg::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 50% 30%,
-      oklch(0.78 0.17 75 / 0.18) 0%,
-      oklch(0.78 0.17 75 / 0.06) 50%,
-      transparent 80%),
-    radial-gradient(ellipse 45% 35% at 78% 65%,
-      oklch(0.68 0.14 60 / 0.10) 0%,
-      transparent 65%),
-    radial-gradient(ellipse 50% 40% at 18% 72%,
-      oklch(0.24 0.025 252 / 0.60) 0%,
-      transparent 70%),
-    linear-gradient(170deg,
-      oklch(0.20 0.028 260) 0%,
-      oklch(0.15 0.025 258) 55%,
-      oklch(0.13 0.020 255) 100%);
+    /* Primary amber spotlight — upper-left edge, NOT centered */
+    radial-gradient(ellipse 60% 55% at 8% 18%,
+      oklch(0.78 0.17 75 / 0.20) 0%,
+      oklch(0.78 0.17 75 / 0.05) 48%,
+      transparent 72%),
+    /* Warm secondary glow — lower-right corner */
+    radial-gradient(ellipse 45% 40% at 92% 82%,
+      oklch(0.67 0.14 68 / 0.13) 0%,
+      oklch(0.67 0.14 68 / 0.03) 50%,
+      transparent 72%),
+    /* Mid-field deep navy fill */
+    radial-gradient(ellipse 75% 65% at 52% 48%,
+      oklch(0.17 0.040 256 / 0.65) 0%,
+      transparent 78%),
+    /* Base diagonal sweep */
+    linear-gradient(
+      162deg,
+      oklch(0.21 0.048 260) 0%,
+      oklch(0.15 0.035 258) 38%,
+      oklch(0.11 0.022 255) 100%
+    );
   pointer-events: none;
   z-index: 0;
 }
 
-/* Grain / noise overlay */
-.hero-bg::after {
-  content: '';
+/* Grid lines — command-center / operations-room feel */
+.hero-bg .grid-overlay {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.035;
-  mix-blend-mode: overlay;
+  background-image:
+    linear-gradient(oklch(0.78 0.17 75 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.78 0.17 75 / 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  /* Fade grid toward edges so it doesn't look tiled */
+  mask-image: radial-gradient(ellipse 75% 55% at 35% 35%, black 15%, transparent 72%);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Amber line accent */
+/* Film grain / noise — the key quality differentiator */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bottom fade into next section */
+.hero-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent 0%, oklch(0.13 0.030 258) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* -----------------------------------------------------------------------
+   Amber accent lines
+   ----------------------------------------------------------------------- */
 .amber-line {
   display: inline-block;
-  width: 3rem;
-  height: 3px;
+  width: 2.25rem;
+  height: 2px;
   background: oklch(0.78 0.17 75);
   border-radius: 9999px;
+  flex-shrink: 0;
 }
 
-/* Skewed divider between hero and stats */
-.skew-divider {
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+.section-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.78 0.17 75 / 0.12) 25%,
+    oklch(0.78 0.17 75 / 0.20) 50%,
+    oklch(0.78 0.17 75 / 0.12) 75%,
+    transparent 100%
+  );
 }
 
-/* Feature card hover glow */
-.feature-card {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  border-top: 2px solid transparent;
+/* -----------------------------------------------------------------------
+   Cards — dark glass
+   ----------------------------------------------------------------------- */
+.card-dark {
+  background-color: oklch(0.19 0.028 254);
+  border: 1px solid oklch(0.28 0.022 252);
+  border-radius: 8px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.feature-card:hover {
-  border-top-color: oklch(0.78 0.17 75);
-  box-shadow: 0 0 28px oklch(0.78 0.17 75 / 0.10);
+.card-dark:hover {
+  border-color: oklch(0.78 0.17 75 / 0.30);
+  box-shadow:
+    0 0 0 1px oklch(0.78 0.17 75 / 0.06),
+    0 8px 40px oklch(0.78 0.17 75 / 0.07);
+  transform: translateY(-3px);
+}
+
+/* Pain point card — amber left border treatment */
+.card-problem {
+  background-color: oklch(0.19 0.028 254);
+  border-top: 1px solid oklch(0.28 0.022 252);
+  border-right: 1px solid oklch(0.28 0.022 252);
+  border-bottom: 1px solid oklch(0.28 0.022 252);
+  border-left: 3px solid oklch(0.78 0.17 75 / 0.70);
+  border-radius: 0 8px 8px 0;
+  transition: border-left-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card-problem:hover {
+  border-left-color: oklch(0.78 0.17 75);
+  box-shadow: 0 8px 40px oklch(0.78 0.17 75 / 0.08), -2px 0 20px oklch(0.78 0.17 75 / 0.10);
+  transform: translateY(-3px);
+}
+
+/* -----------------------------------------------------------------------
+   Stat / number glow — amber with halo
+   ----------------------------------------------------------------------- */
+.stat-glow {
+  color: oklch(0.78 0.17 75);
+  text-shadow:
+    0 0 20px oklch(0.78 0.17 75 / 0.55),
+    0 0 50px oklch(0.78 0.17 75 / 0.25),
+    0 0 80px oklch(0.78 0.17 75 / 0.10);
+}
+
+/* -----------------------------------------------------------------------
+   Step ghost numbers — large background typography
+   ----------------------------------------------------------------------- */
+.step-ghost {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 16vw, 13rem);
+  line-height: 1;
+  color: oklch(0.78 0.17 75 / 0.055);
+  position: absolute;
+  top: -0.20em;
+  left: -0.08em;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+  z-index: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Process connector line (desktop)
+   ----------------------------------------------------------------------- */
+.process-connector {
+  position: absolute;
+  top: 5.5rem;
+  left: 4rem;
+  right: 4rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.78 0.17 75 / 0.18) 12%,
+    oklch(0.78 0.17 75 / 0.35) 50%,
+    oklch(0.78 0.17 75 / 0.18) 88%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------
+   CTA section — amber/navy atmospheric gradient
+   ----------------------------------------------------------------------- */
+.cta-bg {
+  position: relative;
+  background:
+    /* Left amber light source */
+    radial-gradient(ellipse 50% 75% at 0% 50%,
+      oklch(0.78 0.17 75 / 0.16) 0%,
+      oklch(0.78 0.17 75 / 0.04) 50%,
+      transparent 70%),
+    /* Right warm secondary */
+    radial-gradient(ellipse 38% 55% at 100% 50%,
+      oklch(0.67 0.14 68 / 0.10) 0%,
+      transparent 60%),
+    /* Top highlight */
+    radial-gradient(ellipse 60% 30% at 50% 0%,
+      oklch(0.22 0.038 258 / 0.80) 0%,
+      transparent 70%),
+    /* Base */
+    linear-gradient(
+      148deg,
+      oklch(0.20 0.042 258) 0%,
+      oklch(0.14 0.030 256) 50%,
+      oklch(0.11 0.022 254) 100%
+    );
+  overflow: hidden;
+}
+
+/* CTA grain overlay */
+.cta-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CTA diagonal stripe accent (visual flourish) */
+.cta-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    oklch(0.78 0.17 75 / 0.025) 50%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Buttons
+   ----------------------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background-color: oklch(0.78 0.17 75);
+  color: oklch(0.11 0.025 258);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 2px solid oklch(0.78 0.17 75);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 48px; /* WCAG touch target */
+}
+
+.btn-primary:hover {
+  background-color: oklch(0.85 0.17 78);
+  border-color: oklch(0.85 0.17 78);
+  box-shadow: 0 4px 28px oklch(0.78 0.17 75 / 0.35), 0 0 0 4px oklch(0.78 0.17 75 / 0.10);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border: 1px solid oklch(0.99 0.002 252 / 0.14);
+  color: oklch(0.88 0.008 250);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  border-radius: 3px;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 48px; /* WCAG touch target */
+}
+
+.btn-ghost:hover {
+  border-color: oklch(0.78 0.17 75 / 0.40);
+  color: oklch(0.99 0.002 252);
+  background-color: oklch(0.78 0.17 75 / 0.05);
+}
+
+/* -----------------------------------------------------------------------
+   Icon badge (amber glow circle)
+   ----------------------------------------------------------------------- */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 8px;
+  background-color: oklch(0.78 0.17 75 / 0.12);
+  color: oklch(0.78 0.17 75);
+  border: 1px solid oklch(0.78 0.17 75 / 0.18);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.card-dark:hover .icon-badge,
+.card-problem:hover .icon-badge {
+  background-color: oklch(0.78 0.17 75 / 0.20);
+}
+
+/* -----------------------------------------------------------------------
+   Eyebrow label
+   ----------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: oklch(0.78 0.17 75);
+}
+
+/* -----------------------------------------------------------------------
+   Badge pill
+   ----------------------------------------------------------------------- */
+.badge-amber {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: oklch(0.78 0.17 75 / 0.13);
+  color: oklch(0.82 0.160 76);
+  border: 1px solid oklch(0.78 0.17 75 / 0.22);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+/* -----------------------------------------------------------------------
+   Newsletter / email input
+   ----------------------------------------------------------------------- */
+.email-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  background-color: oklch(0.11 0.025 258);
+  border: 1px solid oklch(0.28 0.022 252);
+  border-radius: 3px 0 0 3px;
+  color: oklch(0.99 0.002 252);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+  min-height: 44px;
+}
+
+.email-input::placeholder {
+  color: oklch(0.50 0.015 248);
+}
+
+.email-input:focus {
+  border-color: oklch(0.78 0.17 75 / 0.55);
+  box-shadow: 0 0 0 3px oklch(0.78 0.17 75 / 0.08);
+}
+
+.email-submit {
+  padding: 0.75rem 1.25rem;
+  background-color: oklch(0.78 0.17 75);
+  color: oklch(0.11 0.025 258);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.email-submit:hover {
+  background-color: oklch(0.85 0.17 78);
+}
+
+/* -----------------------------------------------------------------------
+   Section separator — thin amber hairline
+   ----------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------
+   Use case tiles
+   ----------------------------------------------------------------------- */
+.use-case-tile {
+  position: relative;
+  background-color: oklch(0.19 0.028 254);
+  border: 1px solid oklch(0.28 0.022 252);
+  border-radius: 6px;
+  padding: 2rem 1.75rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+}
+
+/* Top edge accent bar — hidden until hover */
+.use-case-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, oklch(0.78 0.17 75 / 0), oklch(0.78 0.17 75), oklch(0.78 0.17 75 / 0));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+/* Subtle inner glow corner */
+.use-case-tile::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, oklch(0.78 0.17 75 / 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.use-case-tile:hover {
+  border-color: oklch(0.78 0.17 75 / 0.28);
+  background-color: oklch(0.21 0.030 254);
+  box-shadow: 0 8px 40px oklch(0.78 0.17 75 / 0.06);
   transform: translateY(-2px);
 }
 
-/* Stat number glow */
-.stat-number {
-  text-shadow: 0 0 40px oklch(0.78 0.17 75 / 0.45);
+.use-case-tile:hover::before {
+  opacity: 1;
+}
+
+.use-case-tile:hover::after {
+  opacity: 1;
+}
+
+/* Use case tag chips */
+.use-case-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.65 0.018 248);
+  background-color: oklch(0.24 0.022 252);
+  border: 1px solid oklch(0.30 0.020 250);
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.use-case-tile:hover .use-case-tag {
+  color: oklch(0.78 0.17 75 / 0.80);
+  border-color: oklch(0.78 0.17 75 / 0.20);
+}
+
+/* -----------------------------------------------------------------------
+   Powered-by badge
+   ----------------------------------------------------------------------- */
+.powered-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  background: oklch(0.17 0.038 256 / 0.70);
+  border: 1px solid oklch(0.78 0.17 75 / 0.22);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.78 0.17 75);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.powered-badge:hover {
+  border-color: oklch(0.78 0.17 75 / 0.50);
+  background: oklch(0.17 0.038 256 / 0.95);
+  box-shadow: 0 0 12px oklch(0.78 0.17 75 / 0.15);
+}
+
+/* -----------------------------------------------------------------------
+   Proof cards — distinctive dashboard-tile treatment
+   ----------------------------------------------------------------------- */
+.proof-card {
+  background-color: oklch(0.19 0.028 254);
+  border: 1px solid oklch(0.28 0.022 252);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle quadrant glow on hover */
+.proof-card::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, oklch(0.78 0.17 75 / 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.proof-card:hover {
+  border-color: oklch(0.78 0.17 75 / 0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 50px oklch(0.78 0.17 75 / 0.07);
+}
+
+.proof-card:hover::before {
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------------------
+   Scrollbar styling (subtle dark chrome)
+   ----------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: oklch(0.13 0.030 258); }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.24 0.025 252);
+  border-radius: 4px;
+  border: 2px solid oklch(0.13 0.030 258);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.34 0.022 250);
+}
+
+/* -----------------------------------------------------------------------
+   Focus states — amber ring for accessibility
+   ----------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid oklch(0.78 0.17 75);
+  outline-offset: 3px;
+  border-radius: 2px;
 }

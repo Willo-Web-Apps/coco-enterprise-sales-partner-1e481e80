@@ -8,7 +8,10 @@ interface Props {
   description?: string;
 }
 
-const { title = "EdgeSales — We Get You In the Room", description = "EdgeSales generates qualified leads and books meetings for COCO AI. The dedicated enterprise AI sales arm of Edge of Company — turning enterprise prospects into automation-ready clients." } = Astro.props;
+const {
+  title = "EdgeSales — Your Business Runs Itself. We Show You How.",
+  description = "Edge of Company maps your operations, identifies automation wins, and connects you with COCO AI agent teams that work 24/7 — starting in days. Book a free automation assessment.",
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -16,20 +19,44 @@ const { title = "EdgeSales — We Get You In the Room", description = "EdgeSales
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://edgeof.xyz" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <title>{title}</title>
+
+    <!-- Structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EdgeSales",
-      "description": "EdgeSales generates qualified leads and books meetings for COCO AI. The dedicated enterprise AI sales arm of Edge of Company.",
-      "url": "https://coco-enterprise-sales-partner.onrender.com"
+      "@type": "ProfessionalService",
+      "name": "EdgeSales by Edge of Company",
+      "description": "AI automation advisory and lead generation — connecting mid-market businesses with COCO AI agent teams.",
+      "url": "https://edgeof.xyz",
+      "email": "info@edgeof.xyz",
+      "sameAs": [
+        "https://www.edgeof.xyz",
+        "https://coco.xyz"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "name": "Free Automation Assessment",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "30-minute workflow mapping session — identify your top 3 AI automation opportunities."
+      }
     }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-surface-50 text-surface-900 font-body antialiased">
+  <body class="min-h-screen flex flex-col bg-surface-50 text-surface-950 font-body antialiased">
     <Header />
     <main class="flex-1">
       <slot />
